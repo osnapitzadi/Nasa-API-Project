@@ -136,7 +136,7 @@ function addDataToArray() {
 
 function printTitles() {
   var dropdown = document.getElementById("dropdown");
-  $( ".option" ).remove();
+  $( "option" ).remove();
   for (let index = 0; index < aNasa.length; index++) {
     const tempItem = aNasa[index];
 
@@ -149,15 +149,25 @@ function printTitles() {
 }
 
 
-function printData () {
-  $( ".card" ).show();
+function printData() {
+
+  // Defining array posistion from option tag
   var optionDiv = document.getElementById("dropdown");
-  var output = document.getElementById("output");
-  console.log(optionDiv.value)
+  console.log(optionDiv.value);
+
+  // print title
   var title = document.getElementById("title");
   title.innerHTML = aNasa[optionDiv.value].title;
+
+  // print date
+  var dateC = document.getElementById("dateC");
+  dateC.innerHTML = moment(aNasa[optionDiv.value].date).format('MMMM Do YYYY');
+
+  // media 
   var img = document.getElementById("img");
   var video = document.getElementById("video");
+
+  // validation for media format
   if (aNasa[optionDiv.value].media_type == "image") {
     img.setAttribute("src", aNasa[optionDiv.value].url);
     img.setAttribute("style", "display: block");
@@ -169,6 +179,22 @@ function printData () {
   }
   var description = document.getElementById("description");
   description.innerHTML = aNasa[optionDiv.value].explanation;
+
   var copyright = document.getElementById("copyright");
-  copyright.innerHTML = "(c) " + aNasa[optionDiv.value].copyright;
+  if (aNasa[optionDiv.value].copyright == undefined) {
+    $('.card-footer').hide();
+  } else {
+    $('.card-footer').show();
+    copyright.innerHTML = "&#169 " + aNasa[optionDiv.value].copyright;
+  }
+}
+
+function todayOnload() {
+  getJSONAsync(api_link, moment(rn).format('YYYY-MM-DD'));
+  setTimeout(printTitles, 1000);
+  setTimeout(printData,1001);
+}
+
+function printToday() {
+
 }
