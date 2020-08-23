@@ -141,7 +141,7 @@ function printTitles() {
     const tempItem = aNasa[index];
 
     var tempTitle = document.createElement("option");
-    tempTitle.innerHTML = tempItem.title;
+    tempTitle.innerHTML = moment(tempItem.date).format('MMMM Do YYYY') + ' : ' + tempItem.title;
     tempTitle.setAttribute("value",index);
     tempTitle.setAttribute("class","option");
     dropdown.appendChild(tempTitle);
