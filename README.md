@@ -16,4 +16,4 @@ There is nothing to install. Just clone and start index.html
 
 * https://nasa-apod-api-adil.web.app/
 
-![Demo Image](https://sun9-27.userapi.com/yydWwQk1KQ-pWWZp8qORVH80YFLuVCg8cuDnYg/EAZWtHcUsnw.jpg)
+![Demo Image](https://sun9-2.userapi.com/ffglJfvOekWC0CLgz49_MUycSW_CLaa54KOwFg/1VquMCGs_NA.jpg)
